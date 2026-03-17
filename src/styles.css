@@ -1,0 +1,91 @@
+/* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  padding: 30px;
+  background-color: #f8f9fa;
+  color: #111;
+}
+
+/* Header */
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* File upload input */
+input[type="file"] {
+  padding: 6px;
+  margin-bottom: 15px;
+}
+
+/* Template download button */
+button.template-btn {
+  margin-bottom: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+button.template-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Tabs */
+div.tab-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button.tab-btn {
+  padding: 8px 16px;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #ddd;
+  color: black;
+}
+
+button.tab-btn.active {
+  background-color: black;
+  color: white;
+}
+
+/* Student table */
+table.student-table {
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+table.student-table th,
+table.student-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Error messages */
+div.error-messages {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Generate PPT button */
+button.generate-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button.generate-btn:hover {
+  background-color: #333;
+}
