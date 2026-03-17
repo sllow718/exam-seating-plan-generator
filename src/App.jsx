@@ -65,7 +65,7 @@ export default function App() {
     Object.entries(classes).forEach(([cls, students]) => {
       const slide = pptx.addSlide();
 
-      slide.addText(cls, {
+      slide.addText("Seating Plan for " + cls, {
         x: 0,
         y: 0.3,
         w: "100%",
@@ -109,6 +109,28 @@ export default function App() {
   return (
     <div>
       <h1>Exam Seating Plan Generator</h1>
+      <div className="instructions">
+        <h2>Instructions</h2>
+        <ol>
+          <li>
+            Download the template file using the{" "}
+            <strong>Download Template</strong> button.
+          </li>
+          <li>
+            Fill in the student names and classes in the template. Each row must
+            have a <strong>Name</strong> and a <strong>Class</strong>.
+          </li>
+          <li>
+            Upload the filled template using the <strong>Choose File</strong>{" "}
+            button.
+          </li>
+          <li>Review the students per class in the tabs below.</li>
+          <li>
+            Click <strong>Generate PowerPoint</strong> to download the class
+            list slides.
+          </li>
+        </ol>
+      </div>
       <button className="template-btn" onClick={downloadTemplate}>
         Download Template
       </button>

@@ -89,3 +89,28 @@ button.generate-btn {
 button.generate-btn:hover {
   background-color: #333;
 }
+
+/* Instructions section */
+.instructions {
+  background-color: #f1f1f1;
+  padding: 15px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+.instructions h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.instructions ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
