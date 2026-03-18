@@ -77,6 +77,11 @@ export default function App() {
 
       const ROWS = 5;
       const COLS = 6;
+      const ROW_H = 0.45; // row height in inches
+      const TABLE_Y = 1.3;
+      const TABLE_H = ROWS * ROW_H;
+      const LABEL_H = 0.3;
+      const LABEL_GAP = 0.05;
 
       const sorted = [...students].sort((a, b) => a.localeCompare(b));
 
@@ -86,17 +91,47 @@ export default function App() {
 
       for (let i = 0; i < sorted.length; i++) {
         const col = Math.floor(i / ROWS);
-        const isReverse = col % 2 === 1; // odd columns go bottom to top
+        const isReverse = col % 2 === 1;
         const row = isReverse ? ROWS - 1 - (i % ROWS) : i % ROWS;
         const name = sorted[i] || "";
         table[row][col] = { text: name ? toCamelCase(name) : "" };
       }
 
+      // FRONT label — just above the table
+      slide.addText("▼  FRONT  ▼", {
+        x: 0.5,
+        y: TABLE_Y - LABEL_H - LABEL_GAP,
+        w: 9,
+        h: LABEL_H,
+        align: "center",
+        fontSize: 11,
+        bold: true,
+        color: "FFFFFF",
+        fill: { color: "222222" },
+      });
+
       slide.addTable(table, {
         x: 0.5,
-        y: 1.2,
+        y: TABLE_Y,
         w: 9,
+        rowH: ROW_H,
         border: { pt: 1, color: "000000" },
+      });
+
+      // BACK label — just below the table
+      const SLIDE_H = 5.63;
+      const BOTTOM_GAP = 0.2;
+
+      slide.addText("▲  BACK  ▲", {
+        x: 0.5,
+        y: SLIDE_H - LABEL_H - BOTTOM_GAP,
+        w: 9,
+        h: LABEL_H,
+        align: "center",
+        fontSize: 11,
+        bold: true,
+        color: "FFFFFF",
+        fill: { color: "222222" },
       });
     });
 
