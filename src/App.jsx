@@ -75,15 +75,21 @@ export default function App() {
         bold: true,
       });
 
-      const table = [];
-      for (let r = 0; r < 5; r++) {
-        const row = [];
-        for (let c = 0; c < 6; c++) {
-          const idx = r * 6 + c;
-          const name = students[idx] || "";
-          row.push({ text: name ? toCamelCase(name) : "" });
-        }
-        table.push(row);
+      const ROWS = 5;
+      const COLS = 6;
+
+      const sorted = [...students].sort((a, b) => a.localeCompare(b));
+
+      const table = Array.from({ length: ROWS }, () =>
+        Array(COLS).fill({ text: "" }),
+      );
+
+      for (let i = 0; i < sorted.length; i++) {
+        const col = Math.floor(i / ROWS);
+        const isReverse = col % 2 === 1; // odd columns go bottom to top
+        const row = isReverse ? ROWS - 1 - (i % ROWS) : i % ROWS;
+        const name = sorted[i] || "";
+        table[row][col] = { text: name ? toCamelCase(name) : "" };
       }
 
       slide.addTable(table, {
