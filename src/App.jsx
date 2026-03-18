@@ -153,7 +153,10 @@ export default function App() {
 
       {Object.keys(classes).length > 0 && (
         <>
-          <div className="tab-container">
+          <div
+            className="tab-container"
+            style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}
+          >
             {Object.keys(classes).map((cls) => (
               <button
                 key={cls}
@@ -166,22 +169,24 @@ export default function App() {
           </div>
 
           {activeTab && (
-            <table className="student-table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Class</th>
-                </tr>
-              </thead>
-              <tbody>
-                {classes[activeTab].map((name, i) => (
-                  <tr key={i}>
-                    <td>{name}</td>
-                    <td>{activeTab}</td>
+            <div style={{ overflowY: "auto" }}>
+              <table className="student-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Class</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {classes[activeTab].map((name, i) => (
+                    <tr key={i}>
+                      <td>{name}</td>
+                      <td>{activeTab}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
 
           <button className="generate-btn" onClick={generatePPT}>
