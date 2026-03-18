@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as XLSX from "xlsx";
 import PptxGenJS from "pptxgenjs";
 import "./styles.css";
+import { toCamelCase } from "./utils/camelCase";
 
 export default function App() {
   const [classes, setClasses] = useState({});
@@ -79,7 +80,8 @@ export default function App() {
         const row = [];
         for (let c = 0; c < 6; c++) {
           const idx = r * 6 + c;
-          row.push({ text: students[idx] || "" });
+          const name = students[idx] || "";
+          row.push({ text: name ? toCamelCase(name) : "" });
         }
         table.push(row);
       }
